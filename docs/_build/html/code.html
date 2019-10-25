@@ -1,0 +1,664 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Documentation for the Code &#8212; web scraper - goodreads  documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Welcome to web scraper - goodreads’s documentation!" href="index.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="documentation-for-the-code">
+<h1>Documentation for the Code<a class="headerlink" href="#documentation-for-the-code" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-HelperUtils">
+<span id="helperutils-py"></span><h2>HelperUtils.py<a class="headerlink" href="#module-HelperUtils" title="Permalink to this headline">¶</a></h2>
+<span class="target" id="module-HelperUtils"></span><ul class="simple">
+<li><p><cite>extract_book_name_from_root_url(root_url)</cite></p></li>
+<li><p><cite>check_if_file_exists_otherwise_handle(file_path)</cite></p></li>
+<li><p><cite>data_for_book_exists_current_date(book_data_folder)</cite></p></li>
+</ul>
+<dl class="function">
+<dt id="HelperUtils.check_if_file_exists_otherwise_handle">
+<code class="sig-prename descclassname">HelperUtils.</code><code class="sig-name descname">check_if_file_exists_otherwise_handle</code><span class="sig-paren">(</span><em class="sig-param">file_path</em><span class="sig-paren">)</span><a class="headerlink" href="#HelperUtils.check_if_file_exists_otherwise_handle" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function checks if the path file exists in the path
+If it doesnt then returns false and if it exists then deletes it and returns true</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>file_path</strong> (<em>str</em>) – path of the file to check</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>bool flag indicating whether file exists or not</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="HelperUtils.data_for_book_exists_current_date">
+<code class="sig-prename descclassname">HelperUtils.</code><code class="sig-name descname">data_for_book_exists_current_date</code><span class="sig-paren">(</span><em class="sig-param">book_data_folder</em><span class="sig-paren">)</span><a class="headerlink" href="#HelperUtils.data_for_book_exists_current_date" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks whether a folder exists and if its creation is the current date or not</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>book_data_folder</strong> (<em>str</em>) – folder name/partial path</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>bool flag indicating whether folder exists or not</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<hr class="docutils" />
+<div class="section" id="module-FileUtil.FilePicking">
+<span id="filepicking-py"></span><h2>FilePicking.py<a class="headerlink" href="#module-FileUtil.FilePicking" title="Permalink to this headline">¶</a></h2>
+<span class="target" id="module-FilePicking"></span><ul class="simple">
+<li><p><cite>save_obj(obj, name, directory )</cite></p></li>
+<li><p><cite>load_obj(name, directory )</cite></p></li>
+<li><p><cite>load_latest_obj(name, directory)</cite></p></li>
+</ul>
+<dl class="function">
+<dt id="FileUtil.FilePicking.load_latest_obj">
+<code class="sig-prename descclassname">FileUtil.FilePicking.</code><code class="sig-name descname">load_latest_obj</code><span class="sig-paren">(</span><em class="sig-param">name</em>, <em class="sig-param">directory</em><span class="sig-paren">)</span><a class="headerlink" href="#FileUtil.FilePicking.load_latest_obj" title="Permalink to this definition">¶</a></dt>
+<dd><p>Loads the latest .pkl file from a book directory</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<em>str</em>) – name with which to save the .pkl file</p></li>
+<li><p><strong>directory</strong> (<em>str</em>) – name of the directory where the .pkl file is saved</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="FileUtil.FilePicking.load_obj">
+<code class="sig-prename descclassname">FileUtil.FilePicking.</code><code class="sig-name descname">load_obj</code><span class="sig-paren">(</span><em class="sig-param">name</em>, <em class="sig-param">directory</em><span class="sig-paren">)</span><a class="headerlink" href="#FileUtil.FilePicking.load_obj" title="Permalink to this definition">¶</a></dt>
+<dd><p>Loads the .pkl file named <cite>name</cite> from <cite>directory</cite></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<em>str</em>) – name with which to save the .pkl file</p></li>
+<li><p><strong>directory</strong> (<em>str</em>) – name of the directory where the .pkl file is saved</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="FileUtil.FilePicking.save_obj">
+<code class="sig-prename descclassname">FileUtil.FilePicking.</code><code class="sig-name descname">save_obj</code><span class="sig-paren">(</span><em class="sig-param">obj</em>, <em class="sig-param">name</em>, <em class="sig-param">directory</em><span class="sig-paren">)</span><a class="headerlink" href="#FileUtil.FilePicking.save_obj" title="Permalink to this definition">¶</a></dt>
+<dd><p>Functions checks if the individual book directory exists as of current date
+If it does’nt exist then it creates it otherwise it deletes the older directory and recreates it
+Pickles and saves the <cite>obj</cite> with the name <cite>name</cite> in dir <cite>directory</cite></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>obj</strong> (<em>python object</em>) – this is being pickled</p></li>
+<li><p><strong>name</strong> (<em>str</em>) – name with which to save the .pkl file</p></li>
+<li><p><strong>directory</strong> (<em>str</em>) – name of the directory where the .pkl file is saved</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<hr class="docutils" />
+<div class="section" id="module-GenreScraper">
+<span id="genrescraper-py"></span><h2>GenreScraper.py<a class="headerlink" href="#module-GenreScraper" title="Permalink to this headline">¶</a></h2>
+<span class="target" id="module-GenreScraper"></span><p>Functions:</p>
+<ul class="simple">
+<li><p><cite>_create_main_parser(genre)</cite></p></li>
+<li><p><cite>_build_book_details_map((sci_fi_book_details, book_index, book_details))</cite></p></li>
+<li><p><cite>_retrieve_book_name(book_block, class_name)</cite></p></li>
+<li><p><cite>_retrieve_book_URL_and_image_URL(book_block)</cite></p></li>
+<li><p><cite>_retrieve_author_name(book_block, class_name)</cite></p></li>
+<li><p><cite>_retrieve_number_of_times_shelved(book_block)</cite></p></li>
+<li><p><cite>_retrieve_rating_published_details(book_block)</cite></p></li>
+<li><p><cite>retriveSciFiBookList(genre)</cite></p></li>
+</ul>
+<dl class="function">
+<dt id="GenreScraper._create_main_parser">
+<code class="sig-prename descclassname">GenreScraper.</code><code class="sig-name descname">_create_main_parser</code><span class="sig-paren">(</span><em class="sig-param">genre</em><span class="sig-paren">)</span><a class="headerlink" href="#GenreScraper._create_main_parser" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates the bs4 parser from the goodreads URL. This is to scrape details
+of most popular books in a genre</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>genre</strong> (<em>str</em>) – Genre to scrape book details</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>parser</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>bs4 object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="GenreScraper._build_book_details_map">
+<code class="sig-prename descclassname">GenreScraper.</code><code class="sig-name descname">_build_book_details_map</code><span class="sig-paren">(</span><em class="sig-param">sci_fi_book_details</em>, <em class="sig-param">book_index</em>, <em class="sig-param">book_details</em><span class="sig-paren">)</span><a class="headerlink" href="#GenreScraper._build_book_details_map" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build the dictionary containing the details of the book.
+This is then further pickled for persistent storage</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>sci_fi_book_details</strong> (<em>dict</em>) – dictionary to store book details</p></li>
+<li><p><strong>book_index</strong> (<em>int</em>) – counter variable for the dictionary <cite>sci_fi_book_details</cite></p></li>
+<li><p><strong>book_details</strong> (<em>list</em>) – List containing the different details about the book</p></li>
+<li><p><strong>needs to be stored in the dict sci_fi_book_details</strong> (<em>that</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>book details</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="GenreScraper._retrieve_book_name">
+<code class="sig-prename descclassname">GenreScraper.</code><code class="sig-name descname">_retrieve_book_name</code><span class="sig-paren">(</span><em class="sig-param">book_block</em>, <em class="sig-param">class_name</em><span class="sig-paren">)</span><a class="headerlink" href="#GenreScraper._retrieve_book_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Finds the book name which is in a link &lt;a&gt; tag</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>book_block</strong> (<em>bs4</em>) – represents the bs4 for an individual book on the webpage</p></li>
+<li><p><strong>class_name</strong> (<em>str</em>) – the CSS class name needed to extract the book name</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>name of the book</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="GenreScraper._retrieve_book_URL_and_image_URL">
+<code class="sig-prename descclassname">GenreScraper.</code><code class="sig-name descname">_retrieve_book_URL_and_image_URL</code><span class="sig-paren">(</span><em class="sig-param">book_block</em><span class="sig-paren">)</span><a class="headerlink" href="#GenreScraper._retrieve_book_URL_and_image_URL" title="Permalink to this definition">¶</a></dt>
+<dd><p>Finds the book URL (which we use in :mod: <cite>web_scraper_goodreads_root.BookReviews</cite>)
+and book image URL</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>book_block</strong> (<em>bs4</em>) – represents the bs4 for an individual book on the webpage</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>book url and book image url</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="GenreScraper._retrieve_author_name">
+<code class="sig-prename descclassname">GenreScraper.</code><code class="sig-name descname">_retrieve_author_name</code><span class="sig-paren">(</span><em class="sig-param">book_block</em>, <em class="sig-param">class_name</em><span class="sig-paren">)</span><a class="headerlink" href="#GenreScraper._retrieve_author_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Finds the author details of the book
+Author details are:
+-author name
+-Goodreads author URL
+-is author on goodreads or not</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>book_block</strong> (<em>bs4</em>) – represents the bs4 for an individual book on the webpage</p></li>
+<li><p><strong>class_name</strong> (<em>str</em>) – the CSS class name needed to extract the book name</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>author details</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="GenreScraper._retrieve_number_of_times_shelved">
+<code class="sig-prename descclassname">GenreScraper.</code><code class="sig-name descname">_retrieve_number_of_times_shelved</code><span class="sig-paren">(</span><em class="sig-param">book_block</em><span class="sig-paren">)</span><a class="headerlink" href="#GenreScraper._retrieve_number_of_times_shelved" title="Permalink to this definition">¶</a></dt>
+<dd><p>Finds the number of times a book has been shlved by people
+Shelving is just a way for users of goodreads to categorize a book</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>book_block</strong> (<em>bs4</em>) – represents the bs4 for an individual book on the webpage</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>number of times shelved</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="GenreScraper._retrieve_rating_published_details">
+<code class="sig-prename descclassname">GenreScraper.</code><code class="sig-name descname">_retrieve_rating_published_details</code><span class="sig-paren">(</span><em class="sig-param">book_block</em><span class="sig-paren">)</span><a class="headerlink" href="#GenreScraper._retrieve_rating_published_details" title="Permalink to this definition">¶</a></dt>
+<dd><p>Finds rating details of the book
+Rating details include:
+-average rating
+-number of ratings
+-year the book was published</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>book_block</strong> (<em>bs4</em>) – represents the bs4 for an individual book on the webpage</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>rating details</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="GenreScraper.retriveSciFiBookList">
+<code class="sig-prename descclassname">GenreScraper.</code><code class="sig-name descname">retriveSciFiBookList</code><span class="sig-paren">(</span><em class="sig-param">genre</em><span class="sig-paren">)</span><a class="headerlink" href="#GenreScraper.retriveSciFiBookList" title="Permalink to this definition">¶</a></dt>
+<dd><p>Main entry into <cite>GenreScraper</cite>
+This function does the following:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>Creates the bs4 parser - <cite>_create_main_parser(genre)</cite></p></li>
+<li><p>Gets a list of bs4 for each of the books</p></li>
+<li><p>Loops through each book, retrives the book details and stores in dict
+<cite>sci_fi_book_details</cite></p></li>
+</ol>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>genre</strong> (<em>str</em>) – genre to scrape details about</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>book details from a particular genre</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<hr class="docutils" />
+<div class="section" id="module-MainBookScraper">
+<span id="mainbookscraper-py"></span><h2>MainBookScraper.py<a class="headerlink" href="#module-MainBookScraper" title="Permalink to this headline">¶</a></h2>
+<span class="target" id="module-MainBookScraper"></span><p>Functions:</p>
+<ul class="simple">
+<li><p><cite>generate_book_review_images()</cite> : Scrapes goodreads.com for reviews and visualizes data</p></li>
+</ul>
+<dl class="function">
+<dt id="MainBookScraper.generate_book_review_images">
+<code class="sig-prename descclassname">MainBookScraper.</code><code class="sig-name descname">generate_book_review_images</code><span class="sig-paren">(</span><em class="sig-param">genre</em><span class="sig-paren">)</span><a class="headerlink" href="#MainBookScraper.generate_book_review_images" title="Permalink to this definition">¶</a></dt>
+<dd><p>Does the following:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>Scrapes goodreads.com to get list of most popular book &amp; details for input <cite>genre</cite></p></li>
+<li><p>Saves details to pickle file</p></li>
+<li><p>Loads the latest pickle file data</p></li>
+<li><dl class="simple">
+<dt>Loops through the book list to:</dt><dd><ul class="simple">
+<li><p>extract book name from book URL</p></li>
+<li><p>scrape book review details</p></li>
+<li><p>save details to pickle file</p></li>
+<li><p>load latest pickle file data</p></li>
+<li><p>visualize review likes data</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ol>
+<dl class="simple">
+<dt>Args:</dt><dd><p>genre (str): book genre to process</p>
+</dd>
+</dl>
+</div></blockquote>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>When there is a timeout exception during scraping, <cite>generate_book_review_images</cite>
+function will retry upto <cite>FAILURE_THRESHOLD</cite> from <code class="xref py py-mod docutils literal notranslate"><span class="pre">web_scraper_goodreads_root.CommonConstants.Constants</span></code> times before skipping the book</p>
+</div>
+</dd></dl>
+
+</div>
+<hr class="docutils" />
+<div class="section" id="module-SiteNavigator">
+<span id="sitenavigator-py"></span><h2>SiteNavigator.py<a class="headerlink" href="#module-SiteNavigator" title="Permalink to this headline">¶</a></h2>
+<span class="target" id="module-SiteNavigator"></span><p>Functions:</p>
+<ul class="simple">
+<li><p><cite>_init(root_url)</cite></p></li>
+<li><p><cite>get_html_code_for_first_page(root_url, new_book)</cite></p></li>
+<li><p><cite>get_html_code_for_other_pages(root_url)</cite></p></li>
+</ul>
+<dl class="function">
+<dt id="SiteNavigator._init">
+<code class="sig-prename descclassname">SiteNavigator.</code><code class="sig-name descname">_init</code><span class="sig-paren">(</span><em class="sig-param">root_url</em><span class="sig-paren">)</span><a class="headerlink" href="#SiteNavigator._init" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates and initializes selenium object for traversal.
+Running via chromedriver.exe. For this code to work ensure chromedriver.exe
+is on the path. Download from <a class="reference external" href="https://chromedriver.chromium.org/downloads">here</a>
+Making this a headless selenium object via chrome_options</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>root_url</strong> (<em>str</em>) – used to initialize selenium object</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>selenium instance</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="SiteNavigator.get_html_code_for_first_page">
+<code class="sig-prename descclassname">SiteNavigator.</code><code class="sig-name descname">get_html_code_for_first_page</code><span class="sig-paren">(</span><em class="sig-param">root_url</em>, <em class="sig-param">new_book</em><span class="sig-paren">)</span><a class="headerlink" href="#SiteNavigator.get_html_code_for_first_page" title="Permalink to this definition">¶</a></dt>
+<dd><p>Visits the first page in a book and returns the HTML code for the book review part
+The <cite>new_book</cite> indicator helps to ensure we recreate the selenium driver instance for every book</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>root_url</strong> (<em>str</em>) – used to initialize selenium object</p></li>
+<li><p><strong>new_book</strong> (<em>bool</em>) – indicates whether its a new book or not</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>html code of the book reviews</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="SiteNavigator.get_html_code_for_other_pages">
+<code class="sig-prename descclassname">SiteNavigator.</code><code class="sig-name descname">get_html_code_for_other_pages</code><span class="sig-paren">(</span><em class="sig-param">root_url</em><span class="sig-paren">)</span><a class="headerlink" href="#SiteNavigator.get_html_code_for_other_pages" title="Permalink to this definition">¶</a></dt>
+<dd><p>Visits the other review pages and returns the html code
+Cliking on the a review page at the bottom performs an Ajax call which returns
+a Element.update() which in turn updates the “reviews” id with HTML code</p>
+<p>The way we check whether the review data has loaded is by adding a dummy id in the HTML
+and waiting till its not present anymore after the Ajax call</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>root_url</strong> (<em>str</em>) – used to initialize selenium object</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>html code of the book reviews</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<hr class="docutils" />
+<div class="section" id="module-BookReviews">
+<span id="bookreviews-py"></span><h2>BookReviews.py<a class="headerlink" href="#module-BookReviews" title="Permalink to this headline">¶</a></h2>
+<span class="target" id="module-BookReviews"></span><ul class="simple">
+<li><p><cite>_create_book_review_scraper_from_source(html_source)</cite></p></li>
+<li><p><cite>_retrieve_review_rating(book_review_tag)</cite></p></li>
+<li><p><cite>_retrieve_review_likes(first_page_book_review_tag)</cite></p></li>
+<li><p><cite>_retrieve_review_date(first_page_book_review_tag)</cite></p></li>
+<li><p><cite>_build_review_rating_map(book_review_details, book_review_index, key, value)</cite></p></li>
+<li><p><cite>_retrieve_book_review_details_per_page(book_review_details, root_book_review_tags, book_review_index)</cite></p></li>
+<li><p><cite>retrieve_book_review_details(book_url, new_book)</cite></p></li>
+</ul>
+<dl class="function">
+<dt id="BookReviews._create_book_review_scraper_from_source">
+<code class="sig-prename descclassname">BookReviews.</code><code class="sig-name descname">_create_book_review_scraper_from_source</code><span class="sig-paren">(</span><em class="sig-param">html_source</em><span class="sig-paren">)</span><a class="headerlink" href="#BookReviews._create_book_review_scraper_from_source" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates the bs4 parser from the HTML source</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>html_source</strong> (<em>str</em>) – html source of the book</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>bs4 parser</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="BookReviews._retrieve_review_rating">
+<code class="sig-prename descclassname">BookReviews.</code><code class="sig-name descname">_retrieve_review_rating</code><span class="sig-paren">(</span><em class="sig-param">book_review_tag</em><span class="sig-paren">)</span><a class="headerlink" href="#BookReviews._retrieve_review_rating" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieves the rating given by the review
+Maps to in integer value from <cite>web_scraper_goodreads_root.CommonConstants.Constants</cite></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>book_review_tag</strong> (<em>bs4</em>) – represents the bs4 instance for a particulat review</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>review rating</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="BookReviews._retrieve_review_likes">
+<code class="sig-prename descclassname">BookReviews.</code><code class="sig-name descname">_retrieve_review_likes</code><span class="sig-paren">(</span><em class="sig-param">first_page_book_review_tag</em><span class="sig-paren">)</span><a class="headerlink" href="#BookReviews._retrieve_review_likes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieves the number of likes on the review</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>first_page_book_review_tag</strong> (<em>bs4</em>) – represents the bs4 instance for a particulat review</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>review likes</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="BookReviews._retrieve_review_date">
+<code class="sig-prename descclassname">BookReviews.</code><code class="sig-name descname">_retrieve_review_date</code><span class="sig-paren">(</span><em class="sig-param">first_page_book_review_tag</em><span class="sig-paren">)</span><a class="headerlink" href="#BookReviews._retrieve_review_date" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieves the review date</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>first_page_book_review_tag</strong> (<em>bs4</em>) – represents the bs4 instance for a particulat review</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>date when the review was posted</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="BookReviews._build_review_rating_map">
+<code class="sig-prename descclassname">BookReviews.</code><code class="sig-name descname">_build_review_rating_map</code><span class="sig-paren">(</span><em class="sig-param">book_review_details</em>, <em class="sig-param">book_review_index</em>, <em class="sig-param">key</em>, <em class="sig-param">value</em><span class="sig-paren">)</span><a class="headerlink" href="#BookReviews._build_review_rating_map" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build the dict <cite>book_review_details</cite></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>book_review_details</strong> (<em>dict</em>) – the book review details</p></li>
+<li><p><strong>book_review_index</strong> (<em>int</em>) – counter variable for the books</p></li>
+<li><p><strong>key</strong> (<em>str</em>) – key used in dict <cite>book_review_details</cite></p></li>
+<li><p><strong>value</strong> (<em>str</em>) – value used in dict <cite>book_review_details</cite></p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>details of the reviews for a book</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="BookReviews._retrieve_book_review_details_per_page">
+<code class="sig-prename descclassname">BookReviews.</code><code class="sig-name descname">_retrieve_book_review_details_per_page</code><span class="sig-paren">(</span><em class="sig-param">book_review_details</em>, <em class="sig-param">root_book_review_tags</em>, <em class="sig-param">book_review_index</em><span class="sig-paren">)</span><a class="headerlink" href="#BookReviews._retrieve_book_review_details_per_page" title="Permalink to this definition">¶</a></dt>
+<dd><p>This functions is the main driver function for all other functions in this file
+Retrieves details of the book which include:
+- rating of the book by the review
+- likes on the review
+- date of the review</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>book_review_details</strong> (<em>dict</em>) – the book review details</p></li>
+<li><p><strong>root_book_review_tags</strong> (<em>bs4</em>) – bs4 instance for a particular review</p></li>
+<li><p><strong>book_review_index</strong> (<em>int</em>) – counter variable for the books</p></li>
+</ul>
+</dd>
+</dl>
+<p>Returns:
+- details of the reviews
+- which book number was processed</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="BookReviews.retrieve_book_review_details">
+<code class="sig-prename descclassname">BookReviews.</code><code class="sig-name descname">retrieve_book_review_details</code><span class="sig-paren">(</span><em class="sig-param">book_url</em>, <em class="sig-param">new_book</em><span class="sig-paren">)</span><a class="headerlink" href="#BookReviews.retrieve_book_review_details" title="Permalink to this definition">¶</a></dt>
+<dd><p>Main entry function into this file’s code
+Also handles the progress bar
+Basically this function scrapes review data from the first page and then visits
+each of the review pages and scrapes review data from them</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>book_url</strong> (<em>str</em>) – URL of the book</p></li>
+<li><p><strong>new_book</strong> (<em>bool</em>) – indicates whether its a new book or not</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>review details of the book</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<hr class="docutils" />
+<div class="section" id="module-book_review_visualization">
+<span id="book-review-visualization-py"></span><h2>book_review_visualization.py<a class="headerlink" href="#module-book_review_visualization" title="Permalink to this headline">¶</a></h2>
+<span class="target" id="module-book_review_visualization"></span><ul class="simple">
+<li><p><cite>_build_color_scatter_plot_array(book_review)</cite></p></li>
+<li><p><cite>visualize_and_save_review_information(book_review, book_name)</cite></p></li>
+</ul>
+<dl class="function">
+<dt id="book_review_visualization._build_color_scatter_plot_array">
+<code class="sig-prename descclassname">book_review_visualization.</code><code class="sig-name descname">_build_color_scatter_plot_array</code><span class="sig-paren">(</span><em class="sig-param">book_review</em><span class="sig-paren">)</span><a class="headerlink" href="#book_review_visualization._build_color_scatter_plot_array" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates the review color list based on the review rating</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>book_review</strong> (<em>dict</em>) – details of the book review</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>list of colors based on the review</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="book_review_visualization.visualize_and_save_review_information">
+<code class="sig-prename descclassname">book_review_visualization.</code><code class="sig-name descname">visualize_and_save_review_information</code><span class="sig-paren">(</span><em class="sig-param">book_review</em>, <em class="sig-param">book_name</em><span class="sig-paren">)</span><a class="headerlink" href="#book_review_visualization.visualize_and_save_review_information" title="Permalink to this definition">¶</a></dt>
+<dd><p>Main function which visualizes the review likes.
+Each review is represented as a circle, the more likes a review has the larger the circle is
+The color of the circle is based on how positive the review is
+Also saves a high res PNG image of the review visualization
+Normalizes the review likes via min max normalization</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>book_review</strong> (<em>dict</em>) – details of the book review</p></li>
+<li><p><strong>book_name</strong> (<em>str</em>) – the name of the book whose review details are to be visualized</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">web scraper - goodreads</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Documentation for the Code</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#module-HelperUtils">HelperUtils.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-FileUtil.FilePicking">FilePicking.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-GenreScraper">GenreScraper.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-MainBookScraper">MainBookScraper.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-SiteNavigator">SiteNavigator.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-BookReviews">BookReviews.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-book_review_visualization">book_review_visualization.py</a></li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="index.html" title="previous chapter">Welcome to web scraper - goodreads’s documentation!</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2019, DivyenduDutta.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.2.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/code.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
