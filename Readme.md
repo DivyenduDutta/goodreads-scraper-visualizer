@@ -4,7 +4,7 @@ Python 2 code which uses **beautiful soup 4** and **selenium** to scrape details
 Also, once it has the individual book URLs, it scrapes the review details of each of those books and
 visualizes this information.
 
-### Requirements
+### Requirements 
 
 As this is using Selenium to control the Chrome Browser,<br>
 so you'll need to download its driver for your specific os from
