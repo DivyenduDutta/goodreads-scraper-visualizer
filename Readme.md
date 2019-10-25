@@ -21,7 +21,7 @@ Hosted on [Read The Docs](https://goodreads-scraper-visualizer.readthedocs.io/en
 
 Achieved via Sphinx (as the doc build tool), reStructuredText as the markup and hosted on Read The Docs website.
 
-###Images
+### Images
 
 Couple of books review details visualized
 
