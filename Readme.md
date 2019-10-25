@@ -15,6 +15,12 @@ so you'll need to download its driver for your specific os from
 
 need to do
 
+### Documentation
+
+Hosted on [Read The Docs](https://goodreads-scraper-visualizer.readthedocs.io/en/latest/).
+Achieved via Sphinx (as the doc build tool), reStructuredText as the markup and hosted on Read The Docs website.
+
+ 
 ### Resources
 
 > - [Selenium](http://www.seleniumhq.org/)
