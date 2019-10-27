@@ -4,6 +4,8 @@ Python 2 code which uses **beautiful soup 4** and **selenium** to scrape details
 Also, once it has the individual book URLs, it scrapes the review details of each of those books and
 visualizes this information.
 
+Uses custom logger - [YALogger](https://github.com/DivyenduDutta/YALogger).
+
 ### Requirements 
 
 As this is using Selenium to control the Chrome Browser,<br>
