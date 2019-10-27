@@ -14,6 +14,7 @@ import os
 from os import path
 import datetime
 from datetime import date
+from YALogger.custom_logger import Logger
 
 def extract_book_name_from_root_url(root_url):
     
@@ -36,7 +37,7 @@ def check_if_file_exists_otherwise_handle(file_path):
     full_file_path = os.getcwd() + '/' +file_path
     if path.exists(full_file_path):
         file_exists = True
-        print('Deleting previously existing file -->'+full_file_path)
+        Logger.log('info', 'HelperUtils','check_if_file_exists_otherwise_handle','Deleting previously existing file -->'+full_file_path)
         os.remove(full_file_path)
     else:
         file_exists = False

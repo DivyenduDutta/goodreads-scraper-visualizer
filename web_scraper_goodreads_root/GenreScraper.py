@@ -21,6 +21,7 @@ from bs4 import BeautifulSoup
 import re
 import pprint
 from FileUtil.FilePicking import save_obj,load_obj
+from YALogger.custom_logger import Logger
 
 
 def _create_main_parser(genre):
@@ -36,7 +37,7 @@ def _create_main_parser(genre):
         bs4 object : parser
     """
     urlToScrape = 'https://www.goodreads.com/shelf/show/'+genre
-    print('Scraping details of '+genre+' genre')
+    Logger.log('info', 'GenreScraper','_create_main_parser','Scraping details of '+genre+' genre')
     page = requests.get(urlToScrape)
     soup = BeautifulSoup(page.text, 'html.parser')
     return soup
@@ -198,7 +199,7 @@ def retriveSciFiBookList(genre):
     Returns:
         dict : book details from a particular genre
     """
-    print('Web scraping started....')
+    Logger.log('info', 'GenreScraper','retriveSciFiBookList','Web scraping started....')
     #root_book_blocks = soup.findAll(attrs={'id' : re.compile("^bookCover")})
     #get the html blocks which lists books
     soup = _create_main_parser(genre)
@@ -238,11 +239,11 @@ def retriveSciFiBookList(genre):
             
             book_index += 1
         else:
-            print('No book name. No book')
+            Logger.log('error', 'GenreScraper','retriveSciFiBookList','No book name. No book')
     
     #pp = pprint.PrettyPrinter(indent=4)
     #print(pp.pprint(sci_fi_book_details))
-    print('Web scraping stop....')
+    Logger.log('info', 'GenreScraper','retriveSciFiBookList','Web scraping stop....')
     return sci_fi_book_details
 
 if __name__ == "__main__":

@@ -17,6 +17,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.chrome.options import Options
+from YALogger.custom_logger import Logger
 
 #global object - selenium driver
 driver = None
@@ -60,13 +61,13 @@ def get_html_code_for_first_page(root_url, new_book):
         driver = None
         
     if driver == None:
-        print('Creating headless selenium object for first page')
+        Logger.log('info', 'SiteNavigator','get_html_code_for_first_page','Creating headless selenium object for first page')
         driver = _init(root_url)
     try:
         first_page = driver.find_element_by_id("bookReviews")
         return first_page.get_attribute('innerHTML')
     except NoSuchElementException:
-        print("WARNING: There is no next page!")
+        Logger.log('error', 'SiteNavigator','get_html_code_for_first_page',"WARNING: There is no next page!")
         return None  
 
 def get_html_code_for_other_pages(root_url):
@@ -86,7 +87,7 @@ def get_html_code_for_other_pages(root_url):
     """
     global driver
     if driver == None:
-        print('Creating headless selenium object for other pages') #should never print
+        Logger.log('info', 'SiteNavigator','get_html_code_for_other_pages','Creating headless selenium object for other pages')
         driver = _init(root_url)
     try:
         next_page = driver.find_element_by_class_name("next_page")
@@ -114,7 +115,7 @@ def get_html_code_for_other_pages(root_url):
         driver.close()
         return False, None, None
     except JavascriptException:
-        print("WARNING: There is no next page!")
+        Logger.log('error', 'SiteNavigator','get_html_code_for_other_pages',"WARNING: There is no next page!")
         return False, None, None
     
 

@@ -21,6 +21,7 @@ from HelperUtils import extract_book_name_from_root_url
 from FileUtil.FilePicking import save_obj
 from FileUtil.FilePicking import load_obj
 from book_review_visualization import visualize_and_save_review_information
+from YALogger.custom_logger import Logger
 
 
 #Not using this to scrape the first page, using selenium for it now
@@ -78,7 +79,7 @@ def _retrieve_review_likes(first_page_book_review_tag):
         else:
             likes = int(likes_text[:-len('like')])
     except AttributeError:
-        print('returning 0 likes')
+        Logger.log('info', 'BookReviews','_retrieve_review_likes','returning 0 likes')
         likes = 0
     return likes
     
@@ -159,17 +160,17 @@ def retrieve_book_review_details(book_url, new_book):
     Returns:
         review details of the book
     """
-    print('Book Review Scraping started...')
+    Logger.log('info', 'BookReviews','retrieve_book_review_details','Book Review Scraping started...')
     book_review_details = {}
     book_review_index = 0
     #first for the first page
-    print('Scraping review data from first page started...')
+    Logger.log('info', 'BookReviews','retrieve_book_review_details','Scraping review data from first page started...')
     root_book_review_html = get_html_code_for_first_page(book_url, new_book)
     new_book = False
     root_book_review_tags = _create_book_review_scraper_from_source(root_book_review_html)
     book_review_details, book_review_index = _retrieve_book_review_details_per_page(book_review_details, root_book_review_tags, book_review_index)
-    print('Scraping review data from first page done...\n')
-    print('Scraping review data from other pages...')
+    Logger.log('info', 'BookReviews','retrieve_book_review_details','Scraping review data from first page done...')
+    Logger.log('info', 'BookReviews','retrieve_book_review_details','Scraping review data from other pages...')
     is_next_page_there = True
     
     #progress bar code
@@ -192,7 +193,7 @@ def retrieve_book_review_details(book_url, new_book):
         #print('Scraping review data from page done...\n')
         
     sys.stdout.write("]\n") # this ends the progress bar
-    print('Book Review Scraping stopped...')
+    Logger.log('info', 'BookReviews','retrieve_book_review_details','Book Review Scraping stopped...')
     return book_review_details
 
 if __name__ == "__main__":

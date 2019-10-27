@@ -16,6 +16,7 @@ from os import path
 from datetime import datetime
 import shutil
 from HelperUtils import data_for_book_exists_current_date
+from YALogger.custom_logger import Logger
 
 
 def save_obj(obj, name, directory ):
@@ -48,7 +49,7 @@ def save_obj(obj, name, directory ):
         with open(full_data_file_path, 'wb') as f:
             pickle.dump(obj, f, pickle.HIGHEST_PROTOCOL)
     else:
-        print(full_data_file_path + ' already exists')
+        Logger.log('error', 'FilePickling','save_obj',full_data_file_path + ' already exists')
 
 def load_obj(name, directory ):
     """
