@@ -57,4 +57,4 @@ html_theme = 'alabaster'
 html_static_path = ['_static']
 
 #Mocking bs4 and selenium to pass builds on RTD
-autodoc_mock_imports  = ['bs4', 'selenium', 'matplotlib', 'numpy']
+autodoc_mock_imports  = ['bs4', 'selenium', 'matplotlib', 'numpy', 'YALogger']
