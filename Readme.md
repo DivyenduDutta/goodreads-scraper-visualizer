@@ -1,4 +1,4 @@
-# goodreads-scraper-visualizer          [![Documentation Status](https://readthedocs.org/projects/goodreads-scraper-visualizer/badge/?version=latest)](https://goodreads-scraper-visualizer.readthedocs.io/en/latest/?badge=latest) ![PyPI](https://img.shields.io/pypi/v/YALogger)
+# goodreads-scraper-visualizer          [![Documentation Status](https://readthedocs.org/projects/goodreads-scraper-visualizer/badge/?version=latest)](https://goodreads-scraper-visualizer.readthedocs.io/en/latest/?badge=latest) 
 
 Python 2 code which uses **beautiful soup 4** and **selenium** to scrape details of most popular books of a genre.
 Also, once it has the individual book URLs, it scrapes the review details of each of those books and
