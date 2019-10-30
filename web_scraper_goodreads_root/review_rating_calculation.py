@@ -271,6 +271,7 @@ def _process_reviews():
             processed_book_review_info,
             "processed_book_rating_info",
             "Data/processed book rating info",
+            True,
         )
 
         aggregated_ratings_list = _build_ratings_list(processed_book_review_info)

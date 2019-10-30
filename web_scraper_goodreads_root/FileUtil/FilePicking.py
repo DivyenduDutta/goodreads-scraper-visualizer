@@ -10,6 +10,7 @@
 - `load_latest_obj(name, directory)`
 """
 import pickle
+import json
 import os
 import glob
 from os import path
@@ -19,16 +20,18 @@ from HelperUtils import data_for_book_exists_current_date
 from YALogger.custom_logger import Logger
 
 
-def save_obj(obj, name, directory):
+def save_obj(obj, name, directory, json_save_needed):
     """
     Functions checks if the individual book directory exists as of current date
     If it does'nt exist then it creates it otherwise it deletes the older directory and recreates it
     Pickles and saves the `obj` with the name `name` in dir `directory`
+    Also saves the data as json in the same folder based on `json_save_needed`
     
     Args:
         obj (python object) : this is being pickled
         name (str) : name with which to save the .pkl file
         directory (str) : name of the directory where the .pkl file is saved
+        json_save_needed (bool) : indicates whether data needs to be saved as json or not
     """
     directory_path = os.getcwd() + "/" + directory + "/"
     if directory != "Data":
@@ -48,6 +51,15 @@ def save_obj(obj, name, directory):
     if path.exists(full_data_file_path) == False:
         with open(full_data_file_path, "wb") as f:
             pickle.dump(obj, f, pickle.HIGHEST_PROTOCOL)
+        if json_save_needed:
+            if type(obj) == dict:
+                full_json_data_file_path = directory_path + name + "_" + timestamp + ".json"
+                with open(full_json_data_file_path, 'w') as fp:
+                    json.dump(obj, fp)
+            else:
+               Logger.log(
+                       "error", "FilePickling", "save_obj", "Data cannot be saved as json as its not a dict"
+                      ) 
     else:
         Logger.log(
             "error", "FilePickling", "save_obj", full_data_file_path + " already exists"

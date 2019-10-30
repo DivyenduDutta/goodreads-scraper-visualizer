@@ -56,4 +56,11 @@ book_review_visualization.py
 
 .. automodule:: book_review_visualization
    :members: _build_color_scatter_plot_array, visualize_and_save_review_information
+   
+review_rating_calculation.py
+=======================================
+
+.. automodule:: review_rating_calculation
+   :members: _extract_review_likes_ratings, _calculate_simple_avg_review_rating, _convert_to_bayesian_adj_rating, _calculate_bayesian_adj_rating,
+	_build_ratings_list, quicksort, _process_reviews
 

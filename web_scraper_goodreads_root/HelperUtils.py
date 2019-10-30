@@ -70,3 +70,4 @@ def data_for_book_exists_current_date(book_data_folder):
         return False
     else:
         return True
+    

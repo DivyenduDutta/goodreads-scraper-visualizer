@@ -277,7 +277,7 @@ if __name__ == "__main__":
     # executed when invoked directly
     genre = "science-fiction"
     sci_fi_book_details = retriveSciFiBookList(genre)
-    save_obj(sci_fi_book_details, "sci-fi-books-list", "Data")
+    save_obj(sci_fi_book_details, "sci-fi-books-list", "Data", False)
 
     sci_fi_list = load_obj("sci-fi-books-list", "Data")
     print(sci_fi_list)
