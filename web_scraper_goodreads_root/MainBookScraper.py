@@ -49,7 +49,7 @@ def generate_book_review_images(genre):
     sci_fi_book_details = retriveSciFiBookList(genre)
     # print('*'*15)
     # Save the details to pkl file
-    save_obj(sci_fi_book_details, "sci-fi-books-list", "Data")
+    save_obj(sci_fi_book_details, "sci-fi-books-list", "Data", True)
     # Read the latest pickle file
     sci_fi_list = load_latest_obj("sci-fi-books-list", "Data")
     book_index = 0
@@ -75,7 +75,10 @@ def generate_book_review_images(genre):
 
                     # save the book details
                     save_obj(
-                        book_review_details, "book_review_details", "Data/" + book_name
+                        book_review_details,
+                        "book_review_details",
+                        "Data/" + book_name,
+                        True,
                     )
                     # load the latest pkl file having review details
                     book_review = load_latest_obj(
@@ -112,6 +115,7 @@ def generate_book_review_images(genre):
                 Logger.log(
                     "error",
                     "MainBookScraper",
+                    "generate_book_review_images",
                     "Skipping "
                     + book_name
                     + " since it hit exception more than threshold limit",
