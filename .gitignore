@@ -1,10 +1,9 @@
 /target/
-/_static/
-/_templates/
-/.spyproject/
-/__pycache__/
-/Data/
-/build/*
+_static/
+_templates/
+.spyproject/
+__pycache__/
+Data/
 !.mvn/wrapper/maven-wrapper.jar
 
 ### STS ###
@@ -36,3 +35,5 @@ package.json.lock
 
 ###Ignore .pyc files###
 *.pyc
+*.exe
+*.json
