@@ -19,7 +19,7 @@ from HelperUtils import data_for_book_exists_current_date
 from YALogger.custom_logger import Logger
 
 
-def save_obj(obj, name, directory ):
+def save_obj(obj, name, directory):
     """
     Functions checks if the individual book directory exists as of current date
     If it does'nt exist then it creates it otherwise it deletes the older directory and recreates it
@@ -30,44 +30,48 @@ def save_obj(obj, name, directory ):
         name (str) : name with which to save the .pkl file
         directory (str) : name of the directory where the .pkl file is saved
     """
-    directory_path = os.getcwd() + '/'+ directory+'/'
-    if directory != 'Data':
+    directory_path = os.getcwd() + "/" + directory + "/"
+    if directory != "Data":
         if not data_for_book_exists_current_date(directory_path):
             if not path.exists(directory_path):
                 os.mkdir(directory_path)
             else:
-                while os.path.isdir (directory_path):
-                    shutil.rmtree (directory_path, ignore_errors=True)
+                while os.path.isdir(directory_path):
+                    shutil.rmtree(directory_path, ignore_errors=True)
                 os.mkdir(directory_path)
     else:
         if not path.exists(directory_path):
             os.mkdir(directory_path)
-    
+
     timestamp = datetime.now().strftime("%Y-%m-%d")
-    full_data_file_path = directory_path+ name + '_' + timestamp + '.pkl'
+    full_data_file_path = directory_path + name + "_" + timestamp + ".pkl"
     if path.exists(full_data_file_path) == False:
-        with open(full_data_file_path, 'wb') as f:
+        with open(full_data_file_path, "wb") as f:
             pickle.dump(obj, f, pickle.HIGHEST_PROTOCOL)
     else:
-        Logger.log('error', 'FilePickling','save_obj',full_data_file_path + ' already exists')
+        Logger.log(
+            "error", "FilePickling", "save_obj", full_data_file_path + " already exists"
+        )
 
-def load_obj(name, directory ):
+
+def load_obj(name, directory):
     """
     Loads the .pkl file named `name` from `directory`
     
     Args:
-        name (str) : name with which to save the .pkl file
+        name (str) : name with which to load the .pkl file
         directory (str) : name of the directory where the .pkl file is saved 
     """
-    directory_path = os.getcwd() + '/'+ directory+'/'
+    directory_path = os.getcwd() + "/" + directory + "/"
     timestamp = datetime.now().strftime("%Y-%m-%d")
-    full_data_file_path = directory_path+ name + '_' + timestamp + '.pkl'
+    full_data_file_path = directory_path + name + "_" + timestamp + ".pkl"
     if path.exists(full_data_file_path) == True:
-        with open(full_data_file_path, 'rb') as f:
+        with open(full_data_file_path, "rb") as f:
             return pickle.load(f)
     else:
-        raise IOError(full_data_file_path + ' doesnt exist')
-        
+        raise IOError(full_data_file_path + " doesnt exist")
+
+
 def load_latest_obj(name, directory):
     """
     Loads the latest .pkl file from a book directory
@@ -76,8 +80,8 @@ def load_latest_obj(name, directory):
         name (str) : name with which to save the .pkl file
         directory (str) : name of the directory where the .pkl file is saved
     """
-    directory_path = os.getcwd() + '/'+ directory+'/*.pkl' #all pickle files
+    directory_path = os.getcwd() + "/" + directory + "/*.pkl"  # all pickle files
     list_of_files = glob.glob(directory_path)
     latest_file = max(list_of_files, key=os.path.getctime)
-    with open(latest_file, 'rb') as f:
+    with open(latest_file, "rb") as f:
         return pickle.load(f)

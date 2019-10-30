@@ -19,8 +19,9 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.chrome.options import Options
 from YALogger.custom_logger import Logger
 
-#global object - selenium driver
+# global object - selenium driver
 driver = None
+
 
 def _init(root_url):
     """
@@ -36,13 +37,14 @@ def _init(root_url):
         selenium instance
     """
     options = Options()
-    options.add_argument('--headless')
-    options.add_argument('--disable-gpu')
-   
-    driver = webdriver.Chrome(chrome_options = options)
+    options.add_argument("--headless")
+    options.add_argument("--disable-gpu")
+
+    driver = webdriver.Chrome(chrome_options=options)
     driver.get(root_url)
-    #print(driver.page_source)
+    # print(driver.page_source)
     return driver
+
 
 def get_html_code_for_first_page(root_url, new_book):
     """
@@ -59,16 +61,27 @@ def get_html_code_for_first_page(root_url, new_book):
     global driver
     if new_book:
         driver = None
-        
+
     if driver == None:
-        Logger.log('info', 'SiteNavigator','get_html_code_for_first_page','Creating headless selenium object for first page')
+        Logger.log(
+            "info",
+            "SiteNavigator",
+            "get_html_code_for_first_page",
+            "Creating headless selenium object for first page",
+        )
         driver = _init(root_url)
     try:
         first_page = driver.find_element_by_id("bookReviews")
-        return first_page.get_attribute('innerHTML')
+        return first_page.get_attribute("innerHTML")
     except NoSuchElementException:
-        Logger.log('error', 'SiteNavigator','get_html_code_for_first_page',"WARNING: There is no next page!")
-        return None  
+        Logger.log(
+            "error",
+            "SiteNavigator",
+            "get_html_code_for_first_page",
+            "WARNING: There is no next page!",
+        )
+        return None
+
 
 def get_html_code_for_other_pages(root_url):
     """
@@ -87,37 +100,51 @@ def get_html_code_for_other_pages(root_url):
     """
     global driver
     if driver == None:
-        Logger.log('info', 'SiteNavigator','get_html_code_for_other_pages','Creating headless selenium object for other pages')
+        Logger.log(
+            "info",
+            "SiteNavigator",
+            "get_html_code_for_other_pages",
+            "Creating headless selenium object for other pages",
+        )
         driver = _init(root_url)
     try:
         next_page = driver.find_element_by_class_name("next_page")
-#        driver.execute_script(
-#                'document.getElementById("reviews").'
-#                'insertAdjacentHTML("beforeend", \'<p id="load_reviews">loading</p>\');'
-#            )
+        #        driver.execute_script(
+        #                'document.getElementById("reviews").'
+        #                'insertAdjacentHTML("beforeend", \'<p id="load_reviews">loading</p>\');'
+        #            )
         if next_page.tag_name == "a":
             # Click the next page button
-            #scroll to 20 avoid pointing issues - specific to chrome
+            # scroll to 20 avoid pointing issues - specific to chrome
             driver.execute_script("window.scrollTo(0, 20)")
-            webdriver.ActionChains(driver).move_to_element(next_page).click(next_page).perform()
-            #next_page.click()
+            webdriver.ActionChains(driver).move_to_element(next_page).click(
+                next_page
+            ).perform()
+            # next_page.click()
             driver.execute_script(
                 'document.getElementById("reviews").'
                 'insertAdjacentHTML("beforeend", \'<p id="load_reviews">loading</p>\');'
-                )
-#            time.sleep(10)
-            WebDriverWait(driver, 20).until(EC.invisibility_of_element_located((By.ID, "load_reviews")))
-#            WebDriverWait(driver, 100).until(EC.presence_of_element_located((By.CLASS_NAME, "current")))
+            )
+            #            time.sleep(10)
+            WebDriverWait(driver, 20).until(
+                EC.invisibility_of_element_located((By.ID, "load_reviews"))
+            )
+            #            WebDriverWait(driver, 100).until(EC.presence_of_element_located((By.CLASS_NAME, "current")))
             current_page = driver.find_element_by_class_name("current")
-            #print("Currently parsing review page - "+current_page.text.encode('utf-8'))
-            
-            return True, driver.page_source, current_page.text.encode('utf-8')
+            # print("Currently parsing review page - "+current_page.text.encode('utf-8'))
+
+            return True, driver.page_source, current_page.text.encode("utf-8")
         driver.close()
         return False, None, None
     except JavascriptException:
-        Logger.log('error', 'SiteNavigator','get_html_code_for_other_pages',"WARNING: There is no next page!")
+        Logger.log(
+            "error",
+            "SiteNavigator",
+            "get_html_code_for_other_pages",
+            "WARNING: There is no next page!",
+        )
         return False, None, None
-    
+
 
 if __name__ == "__main__":
     pass
